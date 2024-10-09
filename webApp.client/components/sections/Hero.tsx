@@ -1,82 +1,141 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
-const Hero = () => {
-  const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+const Hero: React.FC = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
   return (
-    <section
-      id="hero"
-      className="relative h-screen flex items-center justify-center overflow-hidden section-gradient from-background to-secondary/40"
-    >
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-          alt="Car workshop"
-          className="object-cover w-full h-full"
+    <section ref={ref} className="relative min-h-screen w-full overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/heroSectionBackground.png"
+          alt="Hero Background"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-secondary/60" />
       </div>
-      <div className="container mx-auto text-center relative z-10">
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          HÁ{" "}
-          <motion.span
-            className="text-secondary"
-            initial={{ scale: 1 }}
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          >
-            50 ANOS
-          </motion.span>{" "}
-          A CUIDAR DO SEU AUTOMÓVEL
-        </motion.h1>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-start pt-16 sm:pt-24 md:pt-32 lg:pt-36 px-4 sm:px-6 md:px-8 lg:px-16 min-h-screen">
         <motion.div
-          className="flex items-center justify-center mb-8"
+          className="text-left w-full max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <Check className="text-secondary mr-2" />
-          <p className="text-xl">Free diagnosis and estimates available</p>
-        </motion.div>
-        <motion.div
-          className="space-x-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <Button
-            size="lg"
-            className="bg-secondary hover:bg-secondary/80 text-secondary-foreground"
-            onClick={() => scrollTo("schedule")}
+          <motion.h1
+            className="text-[clamp(2rem,5vw,4rem)] font-bold text-white mb-2 sm:mb-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Schedule Service
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="hover:bg-secondary/20"
-            onClick={() => scrollTo("contact")}
+            Há{" "}
+            <motion.span
+              className="relative inline-block"
+              initial={{ backgroundSize: "0 2px" }}
+              animate={
+                inView
+                  ? { backgroundSize: "100% 2px" }
+                  : { backgroundSize: "0 2px" }
+              }
+              transition={{ duration: 0.8, delay: 1 }}
+              style={{
+                backgroundImage: "linear-gradient(to right, #EF4444, #EF4444)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "0 100%",
+                paddingBottom: "4px",
+              }}
+            >
+              50 anos
+            </motion.span>
+          </motion.h1>
+          <motion.h2
+            className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-white mb-2 sm:mb-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Our Location
-          </Button>
+            A cuidar do seu automóvel
+          </motion.h2>
+          <motion.h3
+            className="text-[clamp(1rem,2.5vw,2rem)] font-bold text-red-600 mb-4 sm:mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <span className="block">Os melhores a nível nacional</span>
+            <span className="block">na reparação de discos</span>
+          </motion.h3>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            <Button className="bg-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 text-[clamp(1rem,2vw,1.25rem)] rounded-md hover:bg-red-700 hover:scale-105 transition-all duration-300 ease-in-out">
+              ODKRYJ TE TERAZ NOWY
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Navigation */}
+      <nav className="absolute top-0 left-0 right-0 p-4 sm:p-6 z-20">
+        <motion.div
+          className="flex justify-between items-center max-w-6xl mx-auto"
+          initial={{ opacity: 0, y: -20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img src="/images/logo.png" alt="Logo" className="h-8 sm:h-10" />
+          <ul className="hidden md:flex space-x-2 lg:space-x-6 text-white text-[clamp(0.75rem,1.5vw,1rem)] uppercase">
+            {["Strona główna", "Usługi", "Cennik", "Realizacje", "Kontakt"].map(
+              (item, index) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={
+                    inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
+                  }
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                >
+                  <a
+                    href="#"
+                    className="hover:text-red-600 transition duration-300"
+                  >
+                    {item}
+                  </a>
+                </motion.li>
+              )
+            )}
+          </ul>
+          {/* Mobile menu button */}
+          <button className="md:hidden text-white">
+            <span className="sr-only">Open menu</span>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </motion.div>
+      </nav>
     </section>
   );
 };
