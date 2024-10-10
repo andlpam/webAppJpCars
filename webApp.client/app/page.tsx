@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Header from "@/components/sections/Header";
+import Navigation from "@/components/sections/Navigation";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Specialty from "@/components/sections/Specialty";
@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
-      <Header />
+      <Navigation />
       <main>
         <Hero />
         <About />

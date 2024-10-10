@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { SlideButton } from "@/components/ui/slideButton";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
@@ -21,6 +21,7 @@ const Hero: React.FC = () => {
           objectFit="cover"
           quality={100}
           priority
+          className="object-[70%_center] md:object-center" // Focus more on the person for mobile, center for larger screens
         />
       </div>
 
@@ -75,67 +76,11 @@ const Hero: React.FC = () => {
             <span className="block">Os melhores a nível nacional</span>
             <span className="block">na reparação de discos</span>
           </motion.h3>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-          >
-            <Button className="bg-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 text-[clamp(1rem,2vw,1.25rem)] rounded-md hover:bg-red-700 hover:scale-105 transition-all duration-300 ease-in-out">
-              ODKRYJ TE TERAZ NOWY
-            </Button>
-          </motion.div>
+          <SlideButton className="text-[clamp(1rem,2vw,1.25rem)] px-4 sm:px-6 py-2 sm:py-3">
+            MARQUE JÁ O SEU DIAGNÓSTICO
+          </SlideButton>
         </motion.div>
       </div>
-
-      {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 p-4 sm:p-6 z-20">
-        <motion.div
-          className="flex justify-between items-center max-w-6xl mx-auto"
-          initial={{ opacity: 0, y: -20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.8 }}
-        >
-          <img src="/images/logo.png" alt="Logo" className="h-8 sm:h-10" />
-          <ul className="hidden md:flex space-x-2 lg:space-x-6 text-white text-[clamp(0.75rem,1.5vw,1rem)] uppercase">
-            {["Strona główna", "Usługi", "Cennik", "Realizacje", "Kontakt"].map(
-              (item, index) => (
-                <motion.li
-                  key={item}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={
-                    inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
-                  }
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                >
-                  <a
-                    href="#"
-                    className="hover:text-red-600 transition duration-300"
-                  >
-                    {item}
-                  </a>
-                </motion.li>
-              )
-            )}
-          </ul>
-          {/* Mobile menu button */}
-          <button className="md:hidden text-white">
-            <span className="sr-only">Open menu</span>
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </motion.div>
-      </nav>
     </section>
   );
 };
