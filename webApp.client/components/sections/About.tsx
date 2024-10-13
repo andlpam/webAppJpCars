@@ -18,7 +18,7 @@ const About = () => {
     >
       <main className="container mx-auto px-4 py-8">
         <motion.h2
-          className="text-6xl font-roboto font-black mb-8 text-white tracking-tight"
+          className="text-6xl font-roboto font-black mb-8 text-white tracking-tight text-center"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8 }}
@@ -42,7 +42,7 @@ const About = () => {
                 className="w-full h-full"
               />
             </div>
-            <div className="md:w-1/2 p-6 order-1 md:order-2 bg-[#161212]">
+            <div className="md:w-1/2 p-6 order-1 md:order-2 bg-[#111111]">
               <p className="text-gray-200 mb-6 leading-relaxed font-open-sans">
                 A nossa empresa tem sido líder na reparação de discos de
                 embraiagem há mais de 50 anos, e isso não é por acaso. Desde o

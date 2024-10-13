@@ -69,14 +69,14 @@ const Services = () => {
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <Card className="bg-gray-800 border-gray-700 hover:bg-gray-700 transition-colors duration-300">
+              <Card className="bg-[#111111] border-gray-700 hover:bg-gray-700 transition-colors duration-300">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-xs font-semibold px-3 py-1 bg-transparent border border-red-500 text-red-500 rounded-full">
+                    <span className="text-xs font-semibold px-3 py-1 bg-transparent border border-red-8B0000 text-[#8B0000] rounded-full">
                       {service.category}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-red-500">
+                  <h3 className="text-xl font-bold mb-2 text-[#8B0000]">
                     {service.title}
                   </h3>
                   <p className="text-gray-300 text-sm">{service.description}</p>
