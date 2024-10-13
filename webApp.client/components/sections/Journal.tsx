@@ -19,7 +19,7 @@ const Journal = () => {
     <section
       ref={ref}
       id="journal"
-      className="py-20 section-gradient from-background to-secondary/40"
+      className="py-20 bg-gradient-to-b from-gray-900 to-black"
     >
       <div className="container mx-auto">
         <motion.h2

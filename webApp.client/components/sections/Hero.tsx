@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/heroSectionBackground.png"
+          src="/images/heroSectionBackground_pc.png"
           alt="Hero Background"
           layout="fill"
           objectFit="cover"
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.h1
-            className="text-[clamp(2rem,5vw,4rem)] font-bold text-white mb-2 sm:mb-3"
+            className="text-[clamp(2rem,5vw,4rem)] font-roboto font-bold text-white mb-2 sm:mb-3"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
             </motion.span>
           </motion.h1>
           <motion.h2
-            className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-white mb-2 sm:mb-3"
+            className="text-[clamp(1.5rem,4vw,3rem)] font-roboto font-bold text-white mb-2 sm:mb-3"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
             A cuidar do seu automóvel
           </motion.h2>
           <motion.h3
-            className="text-[clamp(1rem,2.5vw,2rem)] font-bold text-red-600 mb-4 sm:mb-6"
+            className="text-[clamp(1rem,2.5vw,2rem)] font-roboto font-bold text-red-600 mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.8 }}

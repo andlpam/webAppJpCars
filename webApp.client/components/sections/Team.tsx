@@ -35,11 +35,11 @@ const Team = () => {
     <section
       ref={ref}
       id="team"
-      className="py-20 section-gradient from-secondary/40 to-background"
+      className="py-20 bg-gradient-to-b from-gray-900 to-black"
     >
       <div className="container mx-auto">
         <motion.h2
-          className="text-3xl font-bold mb-12 text-center"
+          className="text-3xl font-roboto font-bold mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}

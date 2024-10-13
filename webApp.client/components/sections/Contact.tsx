@@ -16,7 +16,7 @@ const Contact = () => {
     <section
       ref={ref}
       id="contact"
-      className="py-20 section-gradient from-secondary/40 to-background"
+      className="py-20 bg-gradient-to-b from-black to-gray-900"
     >
       <div className="container mx-auto">
         <motion.h2

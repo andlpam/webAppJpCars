@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply font-open-sans text-base;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-roboto font-bold;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
 :root {
   --background: 0 0% 7%;
   --foreground: 0 0% 98%;
@@ -11,7 +31,7 @@
   --popover-foreground: 0 0% 98%;
   --primary: 0 0% 98%;
   --primary-foreground: 0 0% 9%;
-  --secondary: 0 72% 25%;
+  --secondary: 0 0% 15%;
   --secondary-foreground: 0 85% 97%;
   --muted: 0 0% 14.9%;
   --muted-foreground: 0 0% 63.9%;
@@ -34,7 +54,7 @@
   --popover-foreground: 0 0% 98%;
   --primary: 0 0% 98%;
   --primary-foreground: 0 0% 9%;
-  --secondary: 0 72% 25%;
+  --secondary: 220 72% 25%;
   --secondary-foreground: 0 85% 97%;
   --muted: 0 0% 14.9%;
   --muted-foreground: 0 0% 63.9%;
@@ -47,21 +67,6 @@
   --ring: 0 72% 25%;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  .gradient-text {
-    @apply bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -70,35 +75,19 @@ html {
   background: linear-gradient(180deg, var(--tw-gradient-stops));
 }
 
-/* Improved section transitions */
-#hero {
-  background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
+#hero,
+#specialty,
+#schedule,
+#journal {
+  background: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
+}
+
+#services,
+#team,
+#contact {
+  background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
 }
 
 #about {
-  background: linear-gradient(180deg, hsl(var(--secondary)) 0%, hsl(var(--background)) 100%);
-}
-
-#specialty {
-  background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
-}
-
-#services {
-  background: linear-gradient(180deg, hsl(var(--secondary)) 0%, hsl(var(--background)) 100%);
-}
-
-#schedule {
-  background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
-}
-
-#team {
-  background: linear-gradient(180deg, hsl(var(--secondary)) 0%, hsl(var(--background)) 100%);
-}
-
-#journal {
-  background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
-}
-
-#contact {
-  background: linear-gradient(180deg, hsl(var(--secondary)) 0%, hsl(var(--background)) 100%);
+  background: linear-gradient(180deg, #0e0e0e 0%, #121212 100%);
 }

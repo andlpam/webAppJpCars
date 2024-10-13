@@ -1,23 +1,38 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
+import "./globals.css";
+import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Roboto, Open_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-open-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: 'Auto Care Experts - 50 Years of Excellence',
-  description: 'Your trusted car maintenance partner for 50 years',
-}
+  title: "Auto Care Experts - 50 Years of Excellence",
+  description: "Your trusted car maintenance partner for 50 years",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} dark`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${roboto.variable} ${openSans.variable}`}
+    >
+      <body className="dark">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -28,5 +43,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

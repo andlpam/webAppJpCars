@@ -35,7 +35,7 @@ const Schedule: React.FC<ScheduleProps> = ({
     <section
       ref={ref}
       id="schedule"
-      className="py-20 section-gradient from-background to-secondary/40"
+      className="py-20 bg-gradient-to-b from-black to-gray-900"
     >
       <div className="container mx-auto">
         <motion.h2

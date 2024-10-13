@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <motion.footer
       ref={ref}
-      className="bg-secondary text-secondary-foreground py-8"
+      className="bg-gradient-to-b from-black to-gray-900 text-secondary-foreground py-8"
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8 }}
